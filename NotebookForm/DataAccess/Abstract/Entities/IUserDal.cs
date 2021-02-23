@@ -10,5 +10,6 @@ namespace NotebookForm.DataAccess.Abstract.Entities
     public interface IUserDal : IEntityRepository<User>
     {
         //List<UserDetailDto> GetUserDetails();
+        object GetUserDetails();
     }
 }

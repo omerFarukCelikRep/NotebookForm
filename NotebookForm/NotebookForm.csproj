@@ -56,11 +56,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Abstract\INoteService.cs" />
+    <Compile Include="Business\Abstract\IPassword.cs" />
+    <Compile Include="Business\Abstract\IService.cs" />
+    <Compile Include="Business\Abstract\IUserService.cs" />
+    <Compile Include="Business\Concrete\UserManager.cs" />
     <Compile Include="DataAccess\Abstract\EfEntityRepositoryBase.cs" />
     <Compile Include="DataAccess\Abstract\Entities\INoteDal.cs" />
     <Compile Include="DataAccess\Abstract\Entities\IPasswordDal.cs" />
     <Compile Include="DataAccess\Abstract\Entities\IUserDal.cs" />
     <Compile Include="DataAccess\Abstract\IEntityRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EntityFramework\EfNoteDal.cs" />
+    <Compile Include="DataAccess\Concrete\EntityFramework\EfPasswordDal.cs" />
+    <Compile Include="DataAccess\Concrete\EntityFramework\EfUserDal.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mapping\NoteMapping.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mapping\PasswordMapping.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mapping\UserMapping.cs" />
