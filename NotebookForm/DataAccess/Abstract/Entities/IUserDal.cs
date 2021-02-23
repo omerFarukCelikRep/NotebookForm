@@ -1,4 +1,5 @@
 ﻿using NotebookForm.Entity.Concrete;
+using NotebookForm.Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,6 @@ namespace NotebookForm.DataAccess.Abstract.Entities
 {
     public interface IUserDal : IEntityRepository<User>
     {
-        //List<UserDetailDto> GetUserDetails();
-        object GetUserDetails();
+        List<UserDetailDto> GetUserDetails();
     }
 }

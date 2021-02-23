@@ -16,7 +16,7 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework
         public DbSet<Note> Notes { get; set; }
         public NotebookContext() : base("Server=.; Database=Notebooks; Trusted_Connection=true")
         {
-
+            Database.SetInitializer(new NotebookDbInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

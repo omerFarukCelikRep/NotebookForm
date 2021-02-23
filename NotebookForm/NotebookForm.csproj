@@ -73,11 +73,14 @@
     <Compile Include="DataAccess\Concrete\EntityFramework\Mapping\PasswordMapping.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\Mapping\UserMapping.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\NotebookContext.cs" />
+    <Compile Include="DataAccess\Concrete\EntityFramework\NotebookDbInitializer.cs" />
     <Compile Include="Entity\Abstract\BaseEntity.cs" />
+    <Compile Include="Entity\Abstract\IDto.cs" />
     <Compile Include="Entity\Abstract\IEntity.cs" />
     <Compile Include="Entity\Concrete\Note.cs" />
     <Compile Include="Entity\Concrete\Password.cs" />
     <Compile Include="Entity\Concrete\User.cs" />
+    <Compile Include="Entity\DTOs\UserDetailDto.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
