@@ -9,6 +9,7 @@ namespace NotebookForm.Entity.Concrete
 {
     public class Password : BaseEntity
     {
+        public DateTime ModifiedDate { get; set; }
         public string Text { get; set; }
         public int UserID { get; set; }
         public User User { get; set; }

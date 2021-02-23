@@ -1,6 +1,7 @@
 ﻿using NotebookForm.Entity.Concrete;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,30 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework.Mapping
     {
         public PasswordMapping()
         {
+            HasKey(k => k.ID);
 
+            Property(k => k.ID)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            Property(p => p.Text)
+                .HasMaxLength(16)
+                .HasColumnType("varchar")
+                .IsRequired();
+
+            Property(p => p.CreatedDate)
+                .IsRequired();
+
+            Property(p => p.IsActive)
+                .IsRequired();
+
+            Property(p => p.ModifiedDate)
+                .IsOptional();
+
+            HasRequired(r => r.User)
+                .WithMany(m => m.Passwords)
+                .HasForeignKey(f => f.UserID);
+
+            Map(m => m.MapInheritedProperties());
         }
     }
 }
