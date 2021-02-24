@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NotebookForm.DataAccess.Concrete.EntityFramework
 {
-    public class NotebookDbInitializer : CreateDatabaseIfNotExists<NotebookContext>
+    public class NotebookDbInitializer : DropCreateDatabaseAlways<NotebookContext>
     {
         protected override void Seed(NotebookContext context)
         {
@@ -24,6 +24,7 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework
                 IsActive = true,
                 Role = UserRole.Admin
             });
+            context.Users.AddRange(defaultUser);
 
             adminPassword.Add(new Password
             {
@@ -32,6 +33,10 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework
                 Text = "123",
                 UserID = 1
             });
+
+            context.Passwords.AddRange(adminPassword);
+
+            base.Seed(context);
         }
     }
 }
