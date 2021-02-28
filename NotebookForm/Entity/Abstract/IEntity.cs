@@ -8,8 +8,8 @@ namespace NotebookForm.Entity.Abstract
 {
     public interface IEntity
     {
-        int ID { get; set; }
         bool IsActive { get; set; }
-       DateTime CreatedDate { get; set; }
+        DateTime CreatedDate { get; set; }
+        DateTime? ModifiedDate { get; set; }
     }
 }

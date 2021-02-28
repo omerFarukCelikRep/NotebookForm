@@ -9,5 +9,6 @@ namespace NotebookForm.DataAccess.Abstract.Entities
 {
     public interface INoteDal : IEntityRepository<Note>
     {
+        List<Note> GetNotesByUser(int userID);
     }
 }

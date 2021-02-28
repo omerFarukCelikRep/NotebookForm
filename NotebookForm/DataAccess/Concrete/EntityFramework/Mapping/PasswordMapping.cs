@@ -13,9 +13,9 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework.Mapping
     {
         public PasswordMapping()
         {
-            HasKey(k => k.ID);
+            HasKey(k => k.PasswordID);
 
-            Property(k => k.ID)
+            Property(k => k.PasswordID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(p => p.Text)

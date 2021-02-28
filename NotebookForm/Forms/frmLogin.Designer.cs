@@ -48,6 +48,7 @@ namespace NotebookForm.Forms
             this.llblSignUp.TabIndex = 11;
             this.llblSignUp.TabStop = true;
             this.llblSignUp.Text = "Sign Up";
+            this.llblSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSignUp_LinkClicked);
             // 
             // btnLogin
             // 

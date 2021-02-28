@@ -13,9 +13,9 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework.Mapping
     {
         public UserMapping()
         {
-            HasKey(k => k.ID);
+            HasKey(k => k.UserID);
 
-            Property(p => p.ID)
+            Property(p => p.UserID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(p => p.FirstName)
@@ -39,6 +39,9 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework.Mapping
                 .HasMaxLength(20)
                 .HasColumnType("varchar")
                 .IsRequired();
+
+            HasIndex(u => u.UserName)
+                .IsUnique();
 
             HasMany(p => p.Passwords)
                 .WithRequired(u => u.User)

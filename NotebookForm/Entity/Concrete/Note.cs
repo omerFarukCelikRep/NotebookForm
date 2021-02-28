@@ -9,9 +9,10 @@ namespace NotebookForm.Entity.Concrete
 {
     public class Note : BaseEntity
     {
+        public int NoteID { get; set; }
+        public int UserID { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public int UserID { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }

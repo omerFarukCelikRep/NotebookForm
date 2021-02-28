@@ -13,9 +13,9 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework.Mapping
     {
         public NoteMapping()
         {
-            HasKey(k => k.ID);
+            HasKey(k => k.NoteID);
 
-            Property(k => k.ID)
+            Property(k => k.NoteID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(p => p.CreatedDate)
@@ -34,6 +34,7 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework.Mapping
                 .WithMany(m => m.Notes)
                 .HasForeignKey(f => f.UserID);
 
+            // kalıtım alınana classtaki propertyler diğer tüm tablolarda kolon olarak oluşur
             Map(m => m.MapInheritedProperties());
         }
     }

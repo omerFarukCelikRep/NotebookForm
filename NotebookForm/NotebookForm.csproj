@@ -57,9 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Abstract\INoteService.cs" />
-    <Compile Include="Business\Abstract\IPassword.cs" />
+    <Compile Include="Business\Abstract\IPasswordService.cs" />
     <Compile Include="Business\Abstract\IService.cs" />
     <Compile Include="Business\Abstract\IUserService.cs" />
+    <Compile Include="Business\Concrete\NoteManager.cs" />
+    <Compile Include="Business\Concrete\PasswordManager.cs" />
     <Compile Include="Business\Concrete\UserManager.cs" />
     <Compile Include="DataAccess\Abstract\EfEntityRepositoryBase.cs" />
     <Compile Include="DataAccess\Abstract\Entities\INoteDal.cs" />
@@ -75,18 +77,10 @@
     <Compile Include="DataAccess\Concrete\EntityFramework\NotebookContext.cs" />
     <Compile Include="DataAccess\Concrete\EntityFramework\NotebookDbInitializer.cs" />
     <Compile Include="Entity\Abstract\BaseEntity.cs" />
-    <Compile Include="Entity\Abstract\IDto.cs" />
     <Compile Include="Entity\Abstract\IEntity.cs" />
     <Compile Include="Entity\Concrete\Note.cs" />
     <Compile Include="Entity\Concrete\Password.cs" />
     <Compile Include="Entity\Concrete\User.cs" />
-    <Compile Include="Entity\DTOs\UserDetailDto.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +99,12 @@
     <Compile Include="Forms\frmNotes.Designer.cs">
       <DependentUpon>frmNotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPassword.Designer.cs">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmNotes.resx">
       <DependentUpon>frmNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPassword.resx">
+      <DependentUpon>frmPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>

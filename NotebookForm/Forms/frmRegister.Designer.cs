@@ -40,6 +40,8 @@ namespace NotebookForm.Forms
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.lblPwd = new System.Windows.Forms.Label();
+            this.lblUserNameCheck = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtPasswordAgain
@@ -48,6 +50,7 @@ namespace NotebookForm.Forms
             this.txtPasswordAgain.Name = "txtPasswordAgain";
             this.txtPasswordAgain.Size = new System.Drawing.Size(168, 26);
             this.txtPasswordAgain.TabIndex = 21;
+            this.txtPasswordAgain.TextChanged += new System.EventHandler(this.txtPasswordAgain_TextChanged);
             // 
             // lblPasswordAgain
             // 
@@ -80,6 +83,7 @@ namespace NotebookForm.Forms
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(168, 26);
             this.txtUserName.TabIndex = 17;
+            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // lblUserName
             // 
@@ -124,18 +128,37 @@ namespace NotebookForm.Forms
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(181, 314);
+            this.btnRegister.Location = new System.Drawing.Point(183, 331);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(170, 38);
             this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // lblPwd
+            // 
+            this.lblPwd.AutoSize = true;
+            this.lblPwd.Location = new System.Drawing.Point(179, 297);
+            this.lblPwd.Name = "lblPwd";
+            this.lblPwd.Size = new System.Drawing.Size(0, 20);
+            this.lblPwd.TabIndex = 22;
+            // 
+            // lblUserNameCheck
+            // 
+            this.lblUserNameCheck.AutoSize = true;
+            this.lblUserNameCheck.Location = new System.Drawing.Point(179, 177);
+            this.lblUserNameCheck.Name = "lblUserNameCheck";
+            this.lblUserNameCheck.Size = new System.Drawing.Size(0, 20);
+            this.lblUserNameCheck.TabIndex = 23;
             // 
             // frmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 381);
+            this.Controls.Add(this.lblUserNameCheck);
+            this.Controls.Add(this.lblPwd);
             this.Controls.Add(this.txtPasswordAgain);
             this.Controls.Add(this.lblPasswordAgain);
             this.Controls.Add(this.txtPassword);
@@ -169,5 +192,7 @@ namespace NotebookForm.Forms
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label lblFirstName;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.Label lblPwd;
+        private System.Windows.Forms.Label lblUserNameCheck;
     }
 }

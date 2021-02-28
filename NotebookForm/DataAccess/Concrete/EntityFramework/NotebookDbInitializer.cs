@@ -8,33 +8,28 @@ using System.Threading.Tasks;
 
 namespace NotebookForm.DataAccess.Concrete.EntityFramework
 {
-    public class NotebookDbInitializer : DropCreateDatabaseAlways<NotebookContext>
+    public class NotebookDbInitializer : CreateDatabaseIfNotExists<NotebookContext>
     {
         protected override void Seed(NotebookContext context)
         {
-            IList<User> defaultUser = new List<User>();
-            IList<Password> adminPassword = new List<Password>();
-
-            defaultUser.Add(new User
+            User admin = new User();
+            admin.FirstName = "Ömer Faruk";
+            admin.LastName = "Celik";
+            admin.CreatedDate = DateTime.Now;
+            admin.UserName = "admin";
+            admin.Role = UserRole.Admin;
+            admin.IsActive = true;
+            admin.Passwords.Add(new Password
             {
-                FirstName = "Faruk",
-                LastName = "Celik",
-                CreatedDate = DateTime.Now,
-                UserName = "omerfaruk",
-                IsActive = true,
-                Role = UserRole.Admin
-            });
-            context.Users.AddRange(defaultUser);
-
-            adminPassword.Add(new Password
-            {
-                CreatedDate = DateTime.Now,
-                IsActive = true,
                 Text = "123",
-                UserID = 1
+                CreatedDate = DateTime.Now,
+                IsActive = true,
+                
             });
+            
+            context.Users.Add(admin);
 
-            context.Passwords.AddRange(adminPassword);
+            context.SaveChanges();
 
             base.Seed(context);
         }

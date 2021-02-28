@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace NotebookForm.Business.Abstract
 {
-    public interface IPassword : IService<Password>
+    public interface IPasswordService : IService<Password>
     {
+        bool CheckLastPasswords(int userID, string password);
     }
 }

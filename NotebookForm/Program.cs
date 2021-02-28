@@ -17,7 +17,7 @@ namespace NotebookForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmNotes(4));
         }
     }
 }

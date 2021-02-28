@@ -10,6 +10,10 @@ namespace NotebookForm.Business.Abstract
     public interface IUserService : IService<User>
     {
         bool LoginCheck(string userName, string password);
-
+        bool IsAdmin(string userName, string password);
+        bool UserNameCheck(string userName);
+        void ChangeState(string userName);
+        List<User> GetInactiveUsers();
+        int GetUserID(string userName);
     }
 }

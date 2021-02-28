@@ -23,17 +23,18 @@ namespace NotebookForm.DataAccess.Abstract
             }
         }
 
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
             using (TContext context = new TContext())
             {
                 var deletedEntity = context.Entry(entity);
-                deletedEntity.State = EntityState.Deleted;
+                deletedEntity.Entity.IsActive = false;
+                deletedEntity.State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> filter)
+        public virtual TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
             using (TContext context = new TContext())
             {

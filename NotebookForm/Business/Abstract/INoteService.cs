@@ -9,5 +9,7 @@ namespace NotebookForm.Business.Abstract
 {
     public interface INoteService : IService<Note>
     {
+        List<Note> GetNotesByUser(int userID);
+        bool IsExist(int noteID);
     }
 }

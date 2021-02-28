@@ -1,10 +1,10 @@
 ﻿using NotebookForm.DataAccess.Abstract;
 using NotebookForm.DataAccess.Abstract.Entities;
 using NotebookForm.Entity.Concrete;
-using NotebookForm.Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,20 +12,27 @@ namespace NotebookForm.DataAccess.Concrete.EntityFramework
 {
     public class EfUserDal : EfEntityRepositoryBase<User, NotebookContext>, IUserDal
     {
-        public List<UserDetailDto> GetUserDetails()
+        public override User Get(Expression<Func<User, bool>> filter)
         {
             using (NotebookContext context = new NotebookContext())
             {
-                var result = context.Passwords.Join(context.Users,
-                    p => p.UserID,
-                    u => u.ID,
-                    (p, u) => new UserDetailDto
-                    {
-                        UserID = u.ID,
-                        UserName = u.UserName,
-                        Password = p.Text
-                    });
-                return result.ToList();
+                return context.Users.SingleOrDefault(filter);
+            }
+        }
+        public void ChangeState(string userName)
+        {
+            using (NotebookContext context = new NotebookContext())
+            {
+                User user = Get(a => a.UserName == userName);
+                if (user.IsActive)
+                {
+                    user.IsActive = false;
+                }
+                else
+                {
+                    user.IsActive = true;
+                }
+                Update(user);
             }
         }
     }
